@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Xác Thực Khuôn Mặt Sinh Viên</title>
+    <link rel="stylesheet" href="../src/css/camera_style.css">
+    <script src="../src/javascript/camera_script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Hệ Thống Xác Thực Khuôn Mặt Sinh Viên KTX</h1>
+        </header>
+
+        <main class="app-layout">
+            <section class="webcam-section">
+                <h2>Camera</h2>
+                <div class="video-container">
+                    <video id="webcamFeed" autoplay playsinline muted></video>
+                    <div id="webcamOverlay" class="webcam-overlay">
+                        <p>Vui lòng nhìn thẳng vào camera</p>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button id="startButton">Bắt đầu quét</button>
+                    <button id="retryButton" class="hidden">Xác thực lại</button>
+                    <button id="supportButton">Yêu cầu hỗ trợ</button>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Thông Tin Sinh Viên</h2>
+                <div id="statusMessage" class="status-message">
+                    <!-- Thông báo sẽ hiển thị ở đây -->
+                </div>
+                <div id="studentInfo" class="student-info hidden">
+                    <img id="studentAvatar" src="#" alt="Ảnh đại diện sinh viên">
+                    <div class="details">
+                        <p><strong>Họ và tên:</strong> <span id="studentName"></span></p>
+                        <p><strong>Mã số sinh viên:</strong> <span id="studentId"></span></p>
+                        <p><strong>Số phòng KTX:</strong> <span id="studentRoom"></span></p>
+                        <p><strong>Thời gian:</strong> <span id="accessTime"></span></p>
+                    </div>
+                </div>
+                <div id="placeholderInfo" class="placeholder-info">
+                    <p>Thông tin sinh viên sẽ hiển thị tại đây sau khi xác thực thành công.</p>
+                </div>
+            </section>
+        </main>
+
+    </div>
+</body>
+
+</html>

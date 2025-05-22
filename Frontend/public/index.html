@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Quản Lý Sinh Viên Ký Túc Xá</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../src/css/style.css">
+    <script src="../src/javascript/index.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>Hệ thống quản lý sinh viên ký túc xá </h3>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Trang chủ</span>
+                </div>
+                <div class="menu-item" data-section="student">
+                    <a href="page_manage_student.html">
+                        <i class="fas fa-user-graduate"></i>
+                        <span> Quản lý sinh viên</span>
+                    </a>
+                </div>
+                <div class="menu-item" data-section="checkin">
+                    <i class="fas fa-door-open"></i>
+                    <span>Ghi nhận ra/vào</span>
+                </div>
+
+                <a href="home.html" class="logout">
+                    <div class="menu-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Đăng xuất</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="page-title">
+                    <h1>Trang chủ</h1>
+                </div>
+                <div class="current-time">
+                    <div class="date" id="current-date"></div>
+                    <div class="time" id="current-time"></div>
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div class="dashboard-section active">
+                <div class="stat-cards">
+                    <div class="stat-card">
+                        <div class="icon1">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="title">Tổng số sinh viên</div>
+                        <div class="value">1,254</div>
+
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon2">
+                            <i class="fas fa-sign-in-alt"></i>
+                        </div>
+                        <div class="title">Lượt vào hôm nay</div>
+                        <div class="value">357</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon3">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </div>
+                        <div class="title">Lượt ra hôm nay</div>
+                        <div class="value">289</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon4">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="title">Cảnh báo</div>
+                        <div class="value">5</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Các cảnh báo gần đây ! </h2>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-eye"></i> Xem tất cả
+                        </button>
+                    </div>
+                    <ul class="alerts-list">
+                        <li class="alert-item">
+                            <div class="alert-time">09/05/2025 - 02:45 AM</div>
+                            <div class="alert-message">
+                                <strong>Nguyễn Văn A (SV001)</strong> ra ngoài sau giờ giới nghiêm
+                            </div>
+                        </li>
+                        <li class="alert-item warning">
+                            <div class="alert-time">09/05/2025 - 01:30 AM</div>
+                            <div class="alert-message">
+                                <strong>Trần Thị B (SV023)</strong> chưa quét thẻ khi ra khỏi ký túc xá
+                            </div>
+                        </li>
+                        <li class="alert-item">
+                            <div class="alert-time">08/05/2025 - 11:45 PM</div>
+                            <div class="alert-message">
+                                <strong>Lê Văn C (SV045)</strong> ra ngoài sau giờ giới nghiêm
+                            </div>
+                        </li>
+                        <li class="alert-item warning">
+                            <div class="alert-time">08/05/2025 - 10:15 PM</div>
+                            <div class="alert-message">
+                                <strong>Phạm Thị D (SV102)</strong> chưa quét thẻ khi vào ký túc xá
+                            </div>
+                        </li>
+                        <li class="alert-item">
+                            <div class="alert-time">08/05/2025 - 09:30 PM</div>
+                            <div class="alert-message">
+                                <strong>Hoàng Văn E (SV078)</strong> ra ngoài sau giờ giới nghiêm
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Check-in/Check-out Section -->
+            <div class="checkin-section">
+                <div class="scan-area">
+                    <div class="scan-box">
+                        <div class="scan-icon"><i class="fas fa-qrcode"></i></div>
+                        <div class="scan-title">Quét mã QR</div>
+                        <div class="scan-description">
+                            Đưa mã QR của sinh viên vào vùng quét để ghi nhận ra/vào
+                        </div>
+                        <button class="btn btn-primary">
+                            <a href="index2.html">
+                                <i class="fas fa-camera"></i> Mở máy quét
+                            </a>
+                        </button>
+                    </div>
+                    <div class="scan-box">
+                        <div class="scan-icon"><i class="fas fa-user"></i></div>
+                        <div class="scan-title">Nhận diện khuôn mặt</div>
+                        <div class="scan-description">
+                            Sử dụng camera để nhận diện khuôn mặt sinh viên
+                        </div>
+                        <a href="./camera.html">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-camera"></i> Mở camera
+                            </button>
+                        </a>
+                    </div>
+                    <div class="scan-box">
+                        <div class="scan-icon"><i class="fas fa-keyboard"></i></div>
+                        <div class="scan-title">Nhập MSSV</div>
+                        <div class="scan-description">
+                            Nhập mã số sinh viên để ghi nhận ra/vào
+                        </div>
+                        <div class="search-box" style="max-width: 100%; margin-top: 10px;">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Nhập MSSV...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Thông tin sinh viên</h2>
+                    </div>
+                    <div class="student-info">
+                        <img src="/api/placeholder/60/60" alt="Student Avatar" class="student-avatar">
+                        <div class="student-details">
+                            <div class="student-name">Nguyễn Văn A</div>
+                            <div class="student-id">MSSV: SV001</div>
+                            <div class="student-room">Phòng: A101</div>
+                        </div>
+                        <div>
+                            <button class="btn btn-success">
+
+</body>
+
+</html>

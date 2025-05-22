@@ -1,0 +1,225 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top for longer content */
+    min-height: 100vh;
+    padding-top: 20px; /* Add some padding at the top */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden; /* Ensures footer stays within rounded corners */
+}
+
+header {
+    background-color: #007bff; /* Blue theme */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #0056b3;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.app-layout {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    padding: 20px;
+    gap: 20px; /* Space between sections */
+}
+
+.webcam-section, .info-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.webcam-section {
+    flex: 1; /* Takes more space if available */
+    min-width: 300px; /* Minimum width for webcam area */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-section {
+    flex: 1;
+    min-width: 300px; /* Minimum width for info area */
+}
+
+h2 {
+    color: #007bff;
+    margin-top: 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 480px; /* Max width for video */
+    aspect-ratio: 4 / 3; /* Maintain aspect ratio */
+    background-color: #000;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+#webcamFeed {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container, might crop */
+}
+
+.webcam-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3); /* Slight dark overlay */
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    justify-content: center;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#retryButton {
+    background-color: #ffc107; /* Yellow for retry */
+}
+#retryButton:hover {
+    background-color: #e0a800;
+}
+
+#supportButton {
+    background-color: #dc3545; /* Red for support/alert */
+}
+#supportButton:hover {
+    background-color: #c82333;
+}
+
+.status-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.status-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.status-message.info {
+    background-color: #cce5ff;
+    color: #004085;
+    border: 1px solid #b8daff;
+}
+
+.student-info {
+    display: flex;
+    flex-direction: column; /* Stack image and details vertically on small screens */
+    align-items: center;
+    gap: 15px;
+}
+
+.student-info img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Circular avatar */
+    object-fit: cover;
+    border: 3px solid #007bff;
+}
+
+.student-info .details p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.student-info .details strong {
+    color: #555;
+}
+
+.placeholder-info {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+    border: 2px dashed #ddd;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #343a40; /* Dark footer */
+    color: #f8f9fa;
+    font-size: 0.9em;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .student-info {
+        flex-direction: row; /* Image and details side-by-side on larger screens */
+        align-items: flex-start;
+    }
+    .student-info img {
+        margin-right: 20px;
+    }
+}

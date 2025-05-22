@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Quản Lý Sinh Viên</title>
+    <link rel="stylesheet" href="../src/css/page_manage_student.css">
+    <script src="../src/javascript/page_manage_student_main.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>HỆ THỐNG QUẢN LÝ SINH VIÊN</h1>
+            <p>Quản lý thông tin sinh viên ký túc xá</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="search-container">
+            <h2 class="section-title">Tìm kiếm sinh viên</h2>
+            <div class="search-form">
+                <input type="text" id="searchInput" class="form-control"
+                    placeholder="Nhập mã SV, họ tên hoặc phòng ở...">
+                <button type="button" id="searchBtn" class="btn">Tìm kiếm</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="camera-container">
+                <h2 class="section-title">Nhận diện khuôn mặt <span class="required-badge">*Bắt buộc</span></h2>
+                <video id="videoElement" autoplay></video>
+                <canvas id="canvas"></canvas>
+                <img id="capturedImage" src="" alt="Ảnh đã chụp">
+
+                <div class="face-recognition-status" id="recognitionStatus" style="display: none;">
+                    Đang xử lý...
+                </div>
+
+                <div class="camera-buttons">
+                    <button class="btn" id="startCameraBtn">Bật camera</button>
+                    <button class="btn" id="captureBtn" disabled>Chụp ảnh</button>
+                    <button class="btn btn-danger" id="stopCameraBtn" disabled>Tắt camera</button>
+                </div>
+                <div class="camera-note">* Xác thực khuôn mặt là bắt buộc để thêm hoặc cập nhật sinh viên</div>
+            </div>
+
+            <div class="form-container">
+                <h2 class="section-title">Thông tin sinh viên</h2>
+                <form id="studentForm">
+                    <input type="hidden" id="studentId">
+                    <div class="form-group">
+                        <label for="studentCode">Mã sinh viên:</label>
+                        <input type="text" id="studentCode" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fullName">Họ tên sinh viên:</label>
+                        <input type="text" id="fullName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthDate">Ngày tháng năm sinh:</label>
+                        <input type="date" id="birthDate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dormRoom">Phòng ở ký túc xá:</label>
+                        <input type="text" id="dormRoom" class="form-control" required>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-success" id="saveBtn">Lưu thông tin</button>
+                        <button type="button" class="btn" id="resetBtn">Làm mới</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <div class="student-list">
+            <h2 class="section-title">Danh sách sinh viên</h2>
+            <div id="studentTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã SV</th>
+                            <th>Họ tên</th>
+                            <th>Ngày sinh</th>
+                            <th>Phòng KTX</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentListBody">
+                        <!-- Dữ liệu sinh viên sẽ được thêm vào đây -->
+                    </tbody>
+                </table>
+                <div id="noData" class="no-data">Chưa có dữ liệu sinh viên</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="deleteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Xác nhận xóa</h3>
+                <button class="close-modal" id="closeDeleteModal">&times;</button>
+            </div>
+            <p>Bạn có chắc chắn muốn xóa sinh viên này không?</p>
+            <div class="btn-group" style="justify-content: flex-end; margin-top: 20px;">
+                <button class="btn" id="cancelDeleteBtn">Hủy</button>
+                <button class="btn btn-danger" id="confirmDeleteBtn">Xóa</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Hệ Thống Quản Lý Sinh Viên Ký Túc Xá</p>
+        </div>
+    </footer>
+</body>
+
+</html>

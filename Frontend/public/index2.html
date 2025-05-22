@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quét mã QR - Ký túc xá</title>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f2f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .icon {
+            font-size: 40px;
+            color: #007bff;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 16px 0 10px;
+        }
+
+        .desc {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        #qr-reader {
+            margin-top: 20px;
+        }
+
+        #qr-result {
+            margin-top: 10px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="icon">📷</div>
+        <div class="title">Quét mã QR</div>
+        <div class="desc">Đưa mã QR của sinh viên vào vùng quét để ghi nhận ra/vào</div>
+        <button class="btn" onclick="startScanner()">Mở máy quét</button>
+        <div id="qr-reader" style="display:none;"></div>
+        <div id="qr-result"></div>
+    </div>
+
+    <script>
+        let qrScanner;
+
+        function startScanner() {
+            const qrReaderElem = document.getElementById("qr-reader");
+            qrReaderElem.style.display = "block";
+
+            if (!qrScanner) {
+                qrScanner = new Html5Qrcode("qr-reader");
+                qrScanner.start(
+                    { facingMode: "environment" }, // camera sau
+                    {
+                        fps: 10,
+                        qrbox: { width: 250, height: 250 }
+                    },
+                    (decodedText, decodedResult) => {
+                        document.getElementById("qr-result").innerText = `Mã QR: ${decodedText}`;
+                        qrScanner.stop();
+                    },
+                    (errorMessage) => {
+                        // Lỗi không quan trọng
+                    }
+                ).catch(err => {
+                    console.error("Không thể khởi động máy quét:", err);
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
